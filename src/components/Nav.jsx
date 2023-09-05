@@ -1,10 +1,9 @@
-import React from 'react';
-import './Nav.scss';
+import './styles/Nav.scss';
 
 function Nav() {
     return (
         <div>
-            ADMIN PORTAL
+            <h1>ADMIN PORTAL</h1>
         </div>
     );
 }

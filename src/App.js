@@ -1,5 +1,5 @@
-import Nav from './Nav';
-import UserInput from './UserInput';
+import Nav from './components/Nav';
+import UserInput from './components/UserInput';
 
 function App() {
   return (
