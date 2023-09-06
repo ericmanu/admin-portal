@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import './styles/UserInput.scss';
-import "./styles/UserOutput.scss";
-import { AiOutlineDelete } from "react-icons/ai";
-import { FaEdit } from "react-icons/fa";
+import UserOutput from './UserOutput';
 
 const UserInput = () => {
     const [allUserInfo, setAllUserInfo] = useState([]);
@@ -85,25 +83,11 @@ const UserInput = () => {
                 </div>
                 <button type="submit" >{editUser !== null ? 'Edit User' : 'Add User'}</button>
             </form>
-            <div className='btn-area'>Users</div>
-
-            <div className='output-list'>
-                {allUserInfo.map((item) => {
-                    return (
-                        <div className="output-list-item" key={`${item.name}-${item.email}`}>
-                            <div>
-                                <h3>{item.name}</h3>
-                                <p>{item.email}</p>
-                            </div>
-                            <div>
-                                <AiOutlineDelete className='icon' onClick={() => handleDelete(item.email)} />
-                                <FaEdit className='edit-icon' onClick={() => handleEdit(item)} />
-                            </div>
-                        </div>
-                    )
-                })}
-
-            </div>
+            <UserOutput
+                allUserInfo={allUserInfo}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+            />
         </div>
     );
 }
