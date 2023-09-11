@@ -13,6 +13,15 @@ const UserInput = () => {
         if (name.trim() === "" || email.trim() === "") {
             return;
         }
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com)$/;
+        const error = document.getElementById('error');
+        if (!emailRegex.test(email)) {
+            error.style.display = "block";
+            return;
+        }
+        error.style.display = "none";
+
         let newUserInput = {
             name: name,
             email: email
@@ -81,6 +90,7 @@ const UserInput = () => {
                         id="email"
                         placeholder="mmensah@gmail.com" />
                 </div>
+                <h6 id='error'>email should end with .com</h6>
                 <button type="submit" >{editUser !== null ? 'Edit User' : 'Add User'}</button>
             </form>
             <UserOutput
